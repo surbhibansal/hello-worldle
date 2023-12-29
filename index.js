@@ -108,7 +108,7 @@ async function onEnter() {
         return;
     }
     if (currRow === DIMENSION) {
-        updateInfo(`Sorry you ran out of all attempts. The word is ${solution.join('')}.`)
+        updateInfo(`Sorry you ran out of all attempts. The word is ${solution.join('')}.`, 5000);
         return;
     }
     processCurrentRow(guessedWord)

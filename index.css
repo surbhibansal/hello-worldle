@@ -47,7 +47,7 @@ body {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(3, 110px);
     gap: 5px;
 }
 
@@ -67,6 +67,12 @@ body {
 @media (max-width: 999px) {
     .hello_worldle__info {
         font-size: 2rem;
+    }
+    .hello_worldle__grid__item { 
+        font-size: 3.5rem;
+    }
+    .hello_worldle__keypad__key {
+        font-size: 2.6rem;
     }
 }
 
