@@ -1,4 +1,5 @@
 const DIMENSION = 5;
+const GUESSES = 6;
 const guessedWords = new Array(DIMENSION);
 let currRow = 0;
 let currCol = 0;
@@ -10,7 +11,7 @@ const CORRECT_POSITION_LETTER_COLOR = '#359c35';
 function initGrid() {
     for (let i = 0; i < DIMENSION; ++i) {
         guessedWords[i] = new Array(DIMENSION);
-        for (let j = 0; j < DIMENSION + 1; ++j) {
+        for (let j = 0; j < GUESSES; ++j) {
             guessedWords[i][j] = '';
         }
     }
@@ -160,7 +161,7 @@ function processCurrentRow(guessedWord) {
 function setupCells() {
     const grid = document.querySelector('.hello_worldle__grid');
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < DIMENSION + 1; ++i) {
+    for (let i = 0; i < GUESSES; ++i) {
         for (let j = 0; j < DIMENSION; ++j) {
             const cell = document.createElement('div');
             cell.id = `${i}_${j}`;
@@ -198,7 +199,7 @@ function setupKeypad() {
                     return;
                 }
 
-                if (guessedWords[currRow].join('').length >= 5) {
+                if (guessedWords[currRow].join('').length >= GUESSES) {
                     return;
                 }
 
