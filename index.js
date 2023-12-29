@@ -23,7 +23,7 @@ const KEYPAD_MAPPING = [
 ];
 
 const usedLetters = new Set();
-const solution = ['C', 'A', 'C', 'H', 'E'];
+let solution = [];
 
 function mapSolution() {
     const map = new Map();
@@ -212,17 +212,18 @@ function setupKeypad() {
     keypadGrid.appendChild(fragment);
 }
 
-async function readJson() {
+async function readWordFromJson() {
    const res = await fetch('words.json');
    const json = await res.json();
    const date = new Date();
-   const today = `${date.getFullYear()}-${date.getMonth()+1}${date.getDate()}` 
-   console.log(atob(json[today]));
+   const today = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}` 
+   return atob(json[today]);
 };
 
 
-window.onload = async (event) => {
-    await readJson();
+window.onload = async (_) => {
+    const word = await readWordFromJson();
+    solution = word.split('').map(l => l.toUpperCase());
     initGrid()
     setupCells()
     setupKeypad()
