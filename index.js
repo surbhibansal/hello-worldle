@@ -39,7 +39,7 @@ function mapSolution() {
 
 function guess(word) {
     if (word === solution.join('')) {
-        updateInfo(`Congrats! You guessed it in ${currRow + 1} attempts`, 3000);
+        updateInfo(`Congrats! You guessed it in ${currRow + 1} ${currRow === 0 ? 'attempt' : 'attempts'}`, 3000);
         return true;
     }
     return false;
@@ -104,6 +104,10 @@ async function onEnter() {
     const correct = guess(guessedWord);
     if (correct) {
         processCurrentRow(guessedWord)
+        return;
+    }
+    if (currRow === 5) {
+        updateInfo(`Sorry you ran out of all attempts. The word is ${solution.join('')}.`)
         return;
     }
     processCurrentRow(guessedWord)
