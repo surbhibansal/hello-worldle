@@ -1,0 +1,109 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', serif;
+}
+
+.hello_worldle {
+   padding: 1rem;
+}
+
+.hello_worldle__grid {
+    justify-content: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.hello_worldle__grid__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 1px solid white;
+}
+
+.hello_worldle__grid__item::before {
+    content: "";
+    display: inline-block;
+    padding-bottom: 100%;
+}
+
+.hello_worldle__info {
+    font-size: 1rem;
+    text-align: center;
+    position: absolute;
+    display: none;
+    top: 25vh;
+    left: 45vw;
+    background-color:darkgray;
+    color: black;
+    padding: 1rem;
+}
+
+.hello_worldle__keypad {
+    justify-content: center;
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.hello_worldle__keypad::before {
+    content: "";
+    display: inline-block;
+    padding-bottom: 100%;
+}
+
+.hello_worldle__keypad__key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightslategray;
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.shake-animation {
+    animation: horizontal-shake 1s;
+}
+
+@media (min-width: 1000px) {
+    .hello_worldle__keypad {
+        grid-template-columns: repeat(10, 50px);
+        grid-template-rows: repeat(3, 50px);
+    }
+
+    .hello_worldle__keypad__key {
+        font-size: 1rem;
+    }
+
+    .hello_worldle__grid {
+        grid-template-columns: repeat(5, 70px);
+        grid-template-rows: repeat(5, 70px);
+    }
+}
+
+@keyframes horizontal-shake {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(5px)
+    }
+
+    50% {
+        transform: translateX(-5px)
+    }
+
+    75% {
+        transform: translateX(5px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
