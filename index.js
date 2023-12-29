@@ -49,11 +49,9 @@ function updateInfo(message, timeout = 1000) {
     const infoEl = document.querySelector('.hello_worldle__info');
     infoEl.textContent = message;
     infoEl.style.display = 'block';
-    if (shouldHide) {
-        setTimeout(() => {
-            infoEl.style.display = 'none';
-        }, timeout)
-    }
+    setTimeout(() => {
+        infoEl.style.display = 'none';
+    }, timeout)
 }
 
 function selectCurrentRowCells() {
@@ -213,11 +211,11 @@ function setupKeypad() {
 }
 
 async function readWordFromJson() {
-   const res = await fetch('words.json');
-   const json = await res.json();
-   const date = new Date();
-   const today = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}` 
-   return atob(json[today]);
+    const res = await fetch('words.json');
+    const json = await res.json();
+    const date = new Date();
+    const today = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    return atob(json[today]);
 };
 
 
