@@ -39,20 +39,20 @@ function mapSolution() {
 
 function guess(word) {
     if (word === solution.join('')) {
-        updateInfo(`Congrats! You guessed it in ${currRow + 1} attempts`, false);
+        updateInfo(`Congrats! You guessed it in ${currRow + 1} attempts`, 3000);
         return true;
     }
     return false;
 }
 
-function updateInfo(message, shouldHide = true) {
+function updateInfo(message, timeout = 1000) {
     const infoEl = document.querySelector('.hello_worldle__info');
     infoEl.textContent = message;
     infoEl.style.display = 'block';
     if (shouldHide) {
         setTimeout(() => {
             infoEl.style.display = 'none';
-        }, 1000)
+        }, timeout)
     }
 }
 
