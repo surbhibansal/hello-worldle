@@ -9,9 +9,9 @@ const INCORRECT_POSITION_LETTER_COLOR = 'rgb(194 170 12)';
 const CORRECT_POSITION_LETTER_COLOR = '#359c35';
 
 function initGrid() {
-    for (let i = 0; i < DIMENSION; ++i) {
+    for (let i = 0; i < GUESSES; ++i) {
         guessedWords[i] = new Array(DIMENSION);
-        for (let j = 0; j < GUESSES; ++j) {
+        for (let j = 0; j < DIMENSION; ++j) {
             guessedWords[i][j] = '';
         }
     }
