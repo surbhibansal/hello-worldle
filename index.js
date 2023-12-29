@@ -107,7 +107,7 @@ async function onEnter() {
         processCurrentRow(guessedWord)
         return;
     }
-    if (currRow === 5) {
+    if (currRow === DIMENSION) {
         updateInfo(`Sorry you ran out of all attempts. The word is ${solution.join('')}.`)
         return;
     }
@@ -199,7 +199,7 @@ function setupKeypad() {
                     return;
                 }
 
-                if (guessedWords[currRow].join('').length >= GUESSES) {
+                if (guessedWords[currRow].join('').length >= DIMENSION) {
                     return;
                 }
 
