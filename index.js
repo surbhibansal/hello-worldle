@@ -214,7 +214,7 @@ function setupKeypad() {
 
 async function readJson() {
    const res = await fetch('words.json');
-   const json = await res.body();
+   const json = await res.json();
    const date = new Date();
    const today = `${date.getFullYear()}-${date.getMonth()+1}${date.getDate()}` 
    console.log(atob(json[today]));
