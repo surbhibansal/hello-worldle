@@ -49,9 +49,11 @@ function updateInfo(message, shouldHide = true) {
     const infoEl = document.querySelector('.hello_worldle__info');
     infoEl.textContent = message;
     infoEl.style.display = 'block';
-    setTimeout(() => {
-        infoEl.style.display = 'none';
-    }, 1000)
+    if (shouldHide) {
+        setTimeout(() => {
+            infoEl.style.display = 'none';
+        }, 1000)
+    }
 }
 
 function selectCurrentRowCells() {
@@ -210,7 +212,17 @@ function setupKeypad() {
     keypadGrid.appendChild(fragment);
 }
 
-window.onload = (event) => {
+async function readJson() {
+   const res = await fetch('words.json');
+   const json = await res.body();
+   const date = new Date();
+   const today = `${date.getFullYear()}-${date.getMonth()+1}${date.getDate()}` 
+   console.log(atob(json[today]));
+};
+
+
+window.onload = async (event) => {
+    await readJson();
     initGrid()
     setupCells()
     setupKeypad()
