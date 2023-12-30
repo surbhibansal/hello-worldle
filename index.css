@@ -5,7 +5,7 @@ body {
 }
 
 .hello_worldle {
-   padding: 1rem;
+    padding: 1rem;
 }
 
 .hello_worldle__grid {
@@ -13,7 +13,7 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 100px);
+    grid-template-rows: repeat(6, 170px);
 }
 
 .hello_worldle__grid__item {
@@ -37,7 +37,7 @@ body {
     display: none;
     top: 30vh;
     left: 30vw;
-    background-color:darkgray;
+    background-color: darkgray;
     color: black;
     padding: 1rem;
 }
@@ -69,9 +69,11 @@ body {
     .hello_worldle__info {
         font-size: 2rem;
     }
-    .hello_worldle__grid__item { 
+
+    .hello_worldle__grid__item {
         font-size: 5rem;
     }
+
     .hello_worldle__keypad__key {
         font-size: 3rem;
     }

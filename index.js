@@ -20,7 +20,7 @@ function initGrid() {
 const KEYPAD_MAPPING = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ''],
-    ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL', '']
+    ['GO', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL', '']
 ];
 
 const usedLetters = new Set();
@@ -206,11 +206,12 @@ function setupKeypad() {
         let colStart = 0;
         for (let j = 0; j < 10; ++j) {
             const key = document.createElement('div');
-            key.innerText = KEYPAD_MAPPING[i][j];
-            key.id = key.innerText;
-            if (key.innerText !== '') {
+            const keyName = KEYPAD_MAPPING[i][j];
+            key.id = keyName;
+            if (keyName !== '') {
                 key.classList.add('hello_worldle__keypad__key')
             }
+            key.innerText = keyName;
 
             key.style.gridRowStart = i + 1;
             key.style.gridRowEnd = i + 2;
