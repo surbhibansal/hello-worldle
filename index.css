@@ -13,7 +13,7 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 170px);
+    grid-template-rows: repeat(6, 150px);
 }
 
 .hello_worldle__grid__item {
@@ -47,7 +47,7 @@ body {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(20, 43px);
-    grid-template-rows: repeat(3, 200px);
+    grid-template-rows: repeat(3, 150px);
     gap: 5px;
     font-weight: bolder;
 }
