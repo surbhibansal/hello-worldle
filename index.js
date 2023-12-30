@@ -174,10 +174,36 @@ function setupCells() {
     grid.appendChild(fragment);
 }
 
+
+function onKeyPress(ev) {
+    const val = ev.target.innerText;
+    if (val === '') {
+        return;
+    }
+    if (val === 'ENTER') {
+        onEnter();
+        return;
+    }
+    if (val === 'DEL') {
+        onDelete();
+        return;
+    }
+
+    if (guessedWords[currRow].join('').length >= DIMENSION) {
+        return;
+    }
+
+    const cell = document.querySelector(`div[id='${currRow}_${currCol}']`);
+    cell.innerText = val;
+    guessedWords[currRow][currCol] = val;
+    currCol++;
+}
+
 function setupKeypad() {
     const keypadGrid = document.querySelector('.hello_worldle__keypad');
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < 3; ++i) {
+        let colStart = 0;
         for (let j = 0; j < 10; ++j) {
             const key = document.createElement('div');
             key.innerText = KEYPAD_MAPPING[i][j];
@@ -185,29 +211,24 @@ function setupKeypad() {
             if (key.innerText !== '') {
                 key.classList.add('hello_worldle__keypad__key')
             }
-            key.addEventListener('click', ev => {
-                const val = ev.target.innerText;
-                if (val === '') {
-                    return;
-                }
-                if (val === 'ENTER') {
-                    onEnter();
-                    return;
-                }
-                if (val === 'DEL') {
-                    onDelete();
-                    return;
-                }
 
-                if (guessedWords[currRow].join('').length >= DIMENSION) {
-                    return;
-                }
-
-                const cell = document.querySelector(`div[id='${currRow}_${currCol}']`);
-                cell.innerText = val;
-                guessedWords[currRow][currCol] = val;
-                currCol++;
-            });
+            key.style.gridRowStart = i + 1;
+            key.style.gridRowEnd = i + 2;
+            if (i === 2 && (j === 0 || j === 8)) {
+                key.style.gridColumnStart = colStart + 1;
+                key.style.gridColumnEnd = colStart + 4;
+                colStart += 3;
+            } else if (i === 0 || i === 2) {
+                key.style.gridColumnStart = colStart + 1;
+                key.style.gridColumnEnd = colStart + 3;
+                colStart += 2;
+            } else if (i === 1) {
+                key.style.gridColumnStart = colStart + 2;
+                key.style.gridColumnEnd = colStart + 4;
+                colStart += 2;
+            }
+           
+            key.addEventListener('click', onKeyPress);
             fragment.appendChild(key);
         }
 
