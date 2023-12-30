@@ -180,7 +180,7 @@ function onKeyPress(ev) {
     if (val === '') {
         return;
     }
-    if (val === 'ENTER') {
+    if (val === 'GO') {
         onEnter();
         return;
     }
