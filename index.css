@@ -13,7 +13,7 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 200px);
+    grid-template-rows: repeat(6, 100px);
 }
 
 .hello_worldle__grid__item {
@@ -79,8 +79,8 @@ body {
 
 @media (min-width: 1000px) {
     .hello_worldle__keypad {
-        grid-template-columns: repeat(10, 50px);
-        grid-template-rows: repeat(3, 50px);
+        grid-template-columns: repeat(20, 43px);
+        grid-template-rows: repeat(3, 60px);
     }
 
     .hello_worldle__keypad__key {
@@ -89,7 +89,7 @@ body {
 
     .hello_worldle__grid {
         grid-template-columns: repeat(5, 70px);
-        grid-template-rows: repeat(5, 70px);
+        grid-template-rows: repeat(6, 70px);
     }
 }
 
