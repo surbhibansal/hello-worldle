@@ -39,7 +39,7 @@ body {
 .hello_worldle__keypad {
     justify-content: center;
     display: grid;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     grid-template-columns: repeat(20, 15px);
     grid-template-rows: repeat(3, 70px);
     gap: 5px;
