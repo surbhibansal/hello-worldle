@@ -13,7 +13,7 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 50px);
+    grid-template-rows: repeat(6, 55px);
 }
 
 .hello_worldle__grid__item {
@@ -52,7 +52,7 @@ body {
     justify-content: center;
     background-color: lightslategray;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .shake-animation {
