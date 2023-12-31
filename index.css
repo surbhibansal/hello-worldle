@@ -41,7 +41,7 @@ body {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(20, 15px);
-    grid-template-rows: repeat(3, 80px);
+    grid-template-rows: repeat(3, 70px);
     gap: 5px;
     font-weight: bolder;
 }
@@ -52,7 +52,7 @@ body {
     justify-content: center;
     background-color: lightslategray;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .shake-animation {
