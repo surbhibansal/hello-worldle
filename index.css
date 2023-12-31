@@ -5,7 +5,7 @@ body {
 }
 
 .hello_worldle {
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .hello_worldle__grid {
@@ -13,21 +13,15 @@ body {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(6, 150px);
+    grid-template-rows: repeat(6, 80px);
 }
 
 .hello_worldle__grid__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2rem;
     border: 1px solid white;
-}
-
-.hello_worldle__grid__item::before {
-    content: "";
-    display: inline-block;
-    padding-bottom: 100%;
 }
 
 .hello_worldle__info {
@@ -46,8 +40,8 @@ body {
     justify-content: center;
     display: grid;
     margin-top: 2rem;
-    grid-template-columns: repeat(20, 43px);
-    grid-template-rows: repeat(3, 150px);
+    grid-template-columns: repeat(20, 15px);
+    grid-template-rows: repeat(3, 80px);
     gap: 5px;
     font-weight: bolder;
 }
@@ -58,28 +52,14 @@ body {
     justify-content: center;
     background-color: lightslategray;
     cursor: pointer;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .shake-animation {
     animation: horizontal-shake 1s;
 }
 
-@media (max-width: 999px) {
-    .hello_worldle__info {
-        font-size: 2rem;
-    }
-
-    .hello_worldle__grid__item {
-        font-size: 5rem;
-    }
-
-    .hello_worldle__keypad__key {
-        font-size: 3rem;
-    }
-}
-
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) {
     .hello_worldle__keypad {
         grid-template-columns: repeat(20, 43px);
         grid-template-rows: repeat(3, 60px);
@@ -93,7 +73,7 @@ body {
         grid-template-columns: repeat(5, 70px);
         grid-template-rows: repeat(6, 70px);
     }
-}
+} */
 
 @keyframes horizontal-shake {
     0% {
