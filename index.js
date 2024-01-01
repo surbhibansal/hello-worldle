@@ -8,6 +8,12 @@ const INCORRECT_LETTER_COLOR = 'rgb(107 104 104)';
 const INCORRECT_POSITION_LETTER_COLOR = 'rgb(194 170 12)';
 const CORRECT_POSITION_LETTER_COLOR = '#359c35';
 
+const LETTER_TYPE = {
+    INCORRECT_LETTER: 'INCORRECT_LETTER',
+    INCORRECT_POSITION: 'INCORRECT_POSITION',
+    CORRECT_POSITION: 'CORRECT_POSITION'
+};
+
 function initGrid() {
     for (let i = 0; i < GUESSES; ++i) {
         guessedWords[i] = new Array(DIMENSION);
@@ -88,6 +94,26 @@ function applyShakeAnimation(gridItems) {
     });
 }
 
+function applyLetterAnimation(cell, type) {
+    switch(type) {
+        case LETTER_TYPE.INCORRECT_LETTER: {
+            cell.classList.add('incorrect-letter-animation');
+            break;
+        }
+        case LETTER_TYPE.INCORRECT_POSITION: {
+            cell.classList.add('incorrect-position-animation');
+            break;
+        }
+        case LETTER_TYPE.CORRECT_POSITION: {
+            cell.classList.add('correct-position-animation');
+            break;
+        }
+        default: {
+            throw new Error('Invalid letter animation type');
+        }
+    }
+}
+
 async function onEnter() {
     const guessedWord = guessedWords[currRow].join('');
     const gridItems = selectCurrentRowCells();
@@ -135,23 +161,23 @@ function processCurrentRow(guessedWord) {
             const keypadCell = document.querySelector(`div[id='${guessedLetter}']`);
             // 1. Correct position
             if (guessedLetter === solution[i]) {
-                gridItem.style.backgroundColor = CORRECT_POSITION_LETTER_COLOR;
-                keypadCell.style.backgroundColor = CORRECT_POSITION_LETTER_COLOR;
+                applyLetterAnimation(gridItem, LETTER_TYPE.CORRECT_POSITION);
+                applyLetterAnimation(keypadCell, LETTER_TYPE.CORRECT_POSITION);
                 solutionMap.set(guessedLetter, solutionMap.get(guessedLetter) - 1);
                 // 2. Incorrect position
             } else if (solution.includes(guessedLetter)) {
                 const letterCount = solutionMap.get(guessedLetter);
                 if (letterCount > 0) {
-                    gridItem.style.backgroundColor = INCORRECT_POSITION_LETTER_COLOR;
-                    keypadCell.style.backgroundColor = INCORRECT_POSITION_LETTER_COLOR;
+                    applyLetterAnimation(gridItem, LETTER_TYPE.INCORRECT_POSITION);
+                    applyLetterAnimation(keypadCell, LETTER_TYPE.INCORRECT_POSITION);
                     solutionMap.set(guessedLetter, letterCount - 1);
                 } else {
-                    gridItem.style.backgroundColor = INCORRECT_LETTER_COLOR;
-                    keypadCell.style.backgroundColor = INCORRECT_LETTER_COLOR;
+                    applyLetterAnimation(gridItem, LETTER_TYPE.INCORRECT_LETTER);
+                    applyLetterAnimation(keypadCell, LETTER_TYPE.INCORRECT_LETTER);
                 }
             } else {
-                gridItem.style.backgroundColor = INCORRECT_LETTER_COLOR;
-                keypadCell.style.backgroundColor = INCORRECT_LETTER_COLOR;
+                applyLetterAnimation(gridItem, LETTER_TYPE.INCORRECT_LETTER);
+                applyLetterAnimation(keypadCell, LETTER_TYPE.INCORRECT_LETTER);
                 usedLetters.add(guessedLetter);
             }
         }

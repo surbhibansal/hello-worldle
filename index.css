@@ -59,21 +59,26 @@ body {
     animation: horizontal-shake 1s;
 }
 
-/* @media (min-width: 1000px) {
-    .hello_worldle__keypad {
-        grid-template-columns: repeat(20, 43px);
-        grid-template-rows: repeat(3, 60px);
-    }
+.incorrect-letter-animation {
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    background-color: rgb(107 104 104);
+}
 
-    .hello_worldle__keypad__key {
-        font-size: 1rem;
-    }
+.incorrect-position-animation {
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    background-color: rgb(194 170 12);
+}
 
-    .hello_worldle__grid {
-        grid-template-columns: repeat(5, 70px);
-        grid-template-rows: repeat(6, 70px);
-    }
-} */
+.correct-position-animation {
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    background-color: #359c35;
+}
 
 @keyframes horizontal-shake {
     0% {
@@ -95,4 +100,31 @@ body {
     100% {
         transform: translateX(0)
     }
+}
+
+@keyframes incorrect-letter {
+	from {
+		background-color: black;
+	}
+	to {
+		background-color: rgb(107 104 104);
+	}
+}
+
+@keyframes incorrect-position {
+	from {
+		background-color: black;
+	}
+	to {
+		background-color: rgb(194 170 12);
+	}
+}
+
+@keyframes correct-position {
+	from {
+		background-color: black;
+	}
+	to {
+		background-color: #359c35;
+	}
 }
