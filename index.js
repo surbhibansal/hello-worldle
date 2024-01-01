@@ -46,7 +46,8 @@ function mapSolution() {
 
 function guess(word) {
     if (word === solution.join('')) {
-        updateInfo(`Congrats! You guessed it in ${currRow + 1} ${currRow === 0 ? 'attempt' : 'attempts'}`, 3000);
+        updateInfo(`Congrats! You guessed it in ${currRow + 1} ${currRow === 0 ? 'attempt' : 'attempts'}.
+            Happy new year 2024!`, 3000);
         return true;
     }
     return false;
